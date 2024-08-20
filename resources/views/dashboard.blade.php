@@ -1,4 +1,5 @@
 <x-app-layout>
+
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Dashboard') }}
@@ -22,6 +23,14 @@
                     </li>
                 </ul>
             </div>
+            <div class="p-6">Firewall</h3>
+            <ul class="mt-4 space-y-2">
+        <li>
+            <a href="{{ route('firewall.create') }}" class="text-blue-500 hover:underline">Add Firewall Rule</a>
+        </li>
+        
+    </ul>
+           
         </div>
 
         <!-- Main Content -->
@@ -31,4 +40,5 @@
             </div>
         </div>
     </div>
+    
 </x-app-layout>

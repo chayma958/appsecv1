@@ -2,6 +2,10 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FirewallRuleController;
+use App\Http\Controllers\NotificationController;
+
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +17,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+
+Route::get('/firewall/create', [FirewallRuleController::class, 'create'])->name('firewall.create');
+Route::post('/firewall-rules', [FirewallRuleController::class, 'store'])->name('firewall_rules.store');
+Route::delete('/firewall-rules/{id}', [FirewallRuleController::class, 'destroy'])->name('firewall_rules.destroy');
 
 Route::get('/', function () {
     return view('welcome');
@@ -40,5 +49,6 @@ Route::group([' middleware' => ['role:super-admin|admin']], function() {
     Route::resource('users', App\Http\Controllers\UserController::class);
     Route::get('users/{userId}/delete', [App\Http\Controllers\UserController::class, 'destroy']);
 
+    
 });
 require __DIR__.'/auth.php';
