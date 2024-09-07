@@ -1,5 +1,7 @@
 <x-app-layout>
-    <div class="container mx-auto mt-5 px-4">
+<x-navbar />
+
+    <div class="container mx-auto mt-5 px-4 " style="background-color:#1e1e1e">
         <div class="flex justify-between mb-5">
             
             @can('create role')
@@ -33,7 +35,7 @@
                         <tr class="border-b">
                             <td class="py-2 px-4 text-center">{{ $role->id }}</td>
                             <td class="py-2 px-4">{{ $role->name }}</td>
-                            <td class="py-2 px-4 space-x-2">
+                            <td class="py-2 px-4 space-x-2 text-center">
                                 <a href="{{ url('roles/'.$role->id.'/give-permissions') }}" class="bg-yellow-500 hover:bg-yellow-700 text-white py-1 px-3 rounded-lg">Add / Edit Role Permission</a>
 
                                 @can('update role')

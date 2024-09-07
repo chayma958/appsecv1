@@ -1,4 +1,5 @@
 <x-app-layout>
+<x-navbar />
 
     <div class="container mx-auto mt-5 px-4">
         <div class="row">

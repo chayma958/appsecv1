@@ -8,6 +8,8 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
+<x-navbar />
+
     <div class="container">
         <h2>Create Firewall Rule</h2>
         <form action="{{ route('firewall_rules.store') }}" method="POST">

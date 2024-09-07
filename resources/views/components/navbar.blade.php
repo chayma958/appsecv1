@@ -1,19 +1,47 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
+
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
             <div class="flex">
+                <div class="flexy">
                 <!-- Logo -->
                 <div class="shrink-0 flex items-center">
-                    <h1>Web Security</h1>
+                        <a href="{{ url('dashboard') }}" class="block px-4 py-2" style="text-decoration: none; color:#106aa7">Project Security</a></li>
                 </div>
 
-                <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
+            <!-- Users Management -->
+            <div class="relative group">
+                <h1 class="cursor-pointer" onclick="toggleDropdown(event)">Users Management</h1>
+                <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md">
+                    <ul class="py-2">
+                        <li><a href="{{ url('roles') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Roles</a></li>
+                        <li><a href="{{ url('permissions') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Permissions</a></li>
+                        <li><a href="{{ url('users') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Users</a></li>
+                    </ul>
                 </div>
+            </div>
+
+            <!-- Firewall Rules -->
+            <div class="relative group">
+                <h1 class="cursor-pointer" onclick="toggleDropdown(event)">Firewall Rules</h1>
+                <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md">
+                    <ul class="py-2">
+                        <li><a href="{{ url('firewall/create') }}" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Edit Firewall Rules</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Logs -->
+            <div class="relative group">
+                <h1 class="cursor-pointer" onclick="toggleDropdown(event)">Logs</h1>
+                <div class="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md">
+                    <ul class="py-2">
+                        <li><a href="https://localhost/ossec-wui/index.php" class="block px-4 py-2 text-gray-700 hover:bg-gray-100">Check logs</a></li>
+                    </ul>
+                </div>
+            </div>
+</div>
             </div>
 
             <!-- Settings Dropdown -->
@@ -39,13 +67,13 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
-                                                this.closest('form').submit();">
+                                            onclick="event.preventDefault();
+                                                    this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
+
                     </x-slot>
                 </x-dropdown>
             </div>

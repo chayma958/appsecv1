@@ -2,23 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-.toastr-icon {
-    margin-right: 10px;
-    font-size: 20px;
-}
-
-.toastr-success-icon {
-    color: green;
-}
-
-.toastr-error-icon {
-    color: red;
-}
-
-.toastr-info-icon {
-    color: blue;
-}
-
-.toastr-warning-icon {
-    color: orange;
-}

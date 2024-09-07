@@ -1,9 +1,11 @@
 <x-app-layout>
-    <div class="container mx-auto mt-5 px-4">
+<x-navbar />
+
+    <div class="container mx-auto mt-5 px-4" style="background-color:#1e1e1e">
         <div class="flex justify-between mb-5">
             @can('create permission')
             <div>
-                <a href="{{ url('permissions/create') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Add Permission</a>
+                <a href="{{ url('permissions/create') }}" data-route="{{ route('permissions.index') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Add Permission</a>
             </div>
             @endcan
         </div>
@@ -32,7 +34,7 @@
                         <tr class="border-b">
                             <td class="py-2 px-4 text-center">{{ $permission->id }}</td>
                             <td class="py-2 px-4">{{ $permission->name }}</td>
-                            <td class="py-2 px-4 space-x-2">
+                            <td class="py-2 px-4 space-x-2 text-center">
                                 @can('update permission')
                                 <a href="{{ url('permissions/'.$permission->id.'/edit') }}" class="bg-green-500 hover:bg-green-700 text-white py-1 px-3 rounded-lg">Edit</a>
                                 @endcan

@@ -1,9 +1,10 @@
 <x-app-layout>
+<x-navbar />
     <div class="container mx-auto mt-5 px-4">
         <div class="flex justify-between mb-5">
             @can('create user')
             <div>
-                <a href="{{ url('users/create') }}" class="bg-indigo-500 hover:bg-indigo-700 text-white py-2 px-4 rounded-lg">Add User</a>
+                <a href="{{ url('users/create') }}" class="bg-blue-500 hover:bg-blue-700 text-white py-2 px-4 rounded-lg">Add User</a>
             </div>
             @endcan
         </div>
